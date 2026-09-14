@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f2f3f1;
+  --color-paper-deep: #e7e9e5;
+  --color-granite: #24282b;
+  --color-mica: #6e777d;
+  --color-edge: #d5d9d3;
+  --color-jade: #0f6b4f;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-serif), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-mono-code), ui-monospace, "SFMono-Regular", monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-granite);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-jade);
+    color: var(--color-paper);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-jade);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* The name is the loudest thing on the page. Everything else stays quiet. */
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 0.88;
+    font-size: clamp(2.75rem, 11vw, 7rem);
+  }
+
+  .display-sm {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .lede {
+    max-width: 34ch;
+    font-size: clamp(1.125rem, 2.4vw, 1.375rem);
+    line-height: 1.5;
+  }
+
+  .prose-column {
+    max-width: 62ch;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    color: var(--color-mica);
+  }
+
+  .underline-link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-edge);
+    transition: text-decoration-color 160ms ease, color 160ms ease;
+  }
+
+  .underline-link:hover {
+    color: var(--color-jade);
+    text-decoration-color: var(--color-jade);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
