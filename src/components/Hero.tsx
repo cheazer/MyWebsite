@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Typewriter from "./Typewriter";
 
 type HeroLink = {
   label: string;
@@ -9,6 +10,13 @@ const links: HeroLink[] = [
   { label: "github.com/cheazer", href: "https://github.com/cheazer" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/" },
   { label: "FisehaFanuel@gmail.com", href: "mailto:FisehaFanuel@gmail.com" },
+];
+
+const roles: string[] = [
+  "backend engineer",
+  "full stack developer",
+  "machine learning engineer",
+  "co-founder",
 ];
 
 export default function Hero() {
@@ -23,7 +31,12 @@ export default function Hero() {
               Gebru
             </h1>
 
-            <p className="lede mt-8 text-granite">
+                        <p className="display-sm typed-line mt-7 text-xl sm:text-2xl">
+              <span className="text-mica">I am a </span>
+              <Typewriter phrases={roles} />
+            </p>
+
+            <p className="lede mt-6 text-granite">
               I build backend systems and machine learning tools, and I care most about
               the ones that reach people the market usually skips.
             </p>

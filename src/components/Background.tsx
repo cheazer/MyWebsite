@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 import {
   awards,
   education,
@@ -10,13 +12,15 @@ import {
 export default function Background() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-10 sm:py-20" id="background">
-      <div className="mb-10 flex flex-wrap items-baseline justify-between gap-3 border-b border-granite pb-4">
-        <h2 className="display-sm text-2xl sm:text-3xl">Background</h2>
-        <p className="meta">Aberdeen, and Addis Ababa before that</p>
-      </div>
+      <Reveal>
+        <div className="mb-10 flex flex-wrap items-baseline justify-between gap-3 border-b border-granite pb-4">
+          <h2 className="display-sm text-2xl sm:text-3xl">Background</h2>
+          <p className="meta">Aberdeen, and Addis Ababa before that</p>
+        </div>
+      </Reveal>
 
       <div className="grid gap-14 lg:grid-cols-12 lg:gap-10">
-        <div className="lg:col-span-7">
+       <Reveal className="lg:col-span-7">
           <h3 className="display-sm text-lg">{education.institution}</h3>
           <p className="mt-2 text-[1.0625rem]">{education.degree}</p>
           <p className="meta mt-1">{education.period}</p>
@@ -37,9 +41,9 @@ export default function Background() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
 
-        <div className="lg:col-span-5 lg:pl-8">
+        <Reveal className="lg:col-span-5 lg:pl-8" delay={120}>
           <dl className="space-y-6">
             {skillGroups.map((group) => (
               <div key={group.label}>
@@ -58,7 +62,7 @@ export default function Background() {
             </ul>
             <p className="prose-column mt-6 text-mica">{inclusionNote}</p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

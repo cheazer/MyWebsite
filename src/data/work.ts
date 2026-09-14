@@ -1,5 +1,8 @@
+export type IconKey = "server" | "brain" | "terminal" | "users";
+
 export type WorkItem = {
   slug: string;
+  icon: IconKey;
   name: string;
   context: string;
   period: string;
@@ -11,6 +14,7 @@ export type WorkItem = {
 
 export const featuredWork: WorkItem = {
   slug: "vintageet",
+  icon: "server",
   name: "VintageET",
   context: "Co-founder and backend engineer",
   period: "2025 to now",
@@ -28,6 +32,7 @@ export const featuredWork: WorkItem = {
 export const projects: WorkItem[] = [
   {
     slug: "studymate",
+    icon: "brain",
     name: "StudyMate",
     context: "AI study companion, GDG Build with Gemma hackathon",
     period: "One day, two people",
@@ -42,6 +47,7 @@ export const projects: WorkItem[] = [
   },
   {
     slug: "mushroom-toxicity",
+    icon: "terminal",
     name: "Mushroom toxicity classification",
     context: "Machine learning experiment",
     period: "Personal project",
@@ -56,6 +62,7 @@ export const projects: WorkItem[] = [
   },
   {
     slug: "staff-workload",
+    icon: "users",
     name: "Staff workload management system",
     context: "Team of four for the School of Computing, University of Aberdeen",
     period: "Professional development project",

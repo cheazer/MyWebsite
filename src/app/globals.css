@@ -90,6 +90,34 @@
     color: var(--color-jade);
     text-decoration-color: var(--color-jade);
   }
+
+    .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 620ms cubic-bezier(0.22, 0.61, 0.28, 1),
+      transform 620ms cubic-bezier(0.22, 0.61, 0.28, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .caret {
+    display: inline-block;
+    width: 0.62ch;
+    height: 1.05em;
+    margin-left: 0.08em;
+    background-color: var(--color-jade);
+    vertical-align: -0.14em;
+    animation: caret-blink 1.05s steps(1) infinite;
+  }
+
+  .typed-line {
+    display: block;
+    min-height: 1.6em;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -100,5 +128,16 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
   }
 }
