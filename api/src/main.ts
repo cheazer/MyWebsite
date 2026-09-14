@@ -21,7 +21,8 @@ async function bootstrap(): Promise<void> {
   app.enableCors({ origin: origins, methods: ['GET', 'POST'] });
 
   const port = Number(process.env.PORT ?? 4000);
-  await app.listen(port);
+  // Bind all interfaces, containers do not route to localhost.
+  await app.listen(port, '0.0.0.0');
   logger.log(`API listening on port ${port}`);
 }
 
