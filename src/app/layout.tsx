@@ -24,16 +24,42 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const description =
+  "Final year computing science student in Aberdeen. I build backend systems and machine learning tools, including VintageET, a second-hand fashion marketplace for Ethiopia.";
+
 export const metadata: Metadata = {
-  title: "Fanuel Gebru, software engineer",
-  description:
-    "Final-year computing science student in Aberdeen. I build backend systems and machine learning tools, including VintageET, a second-hand fashion marketplace for Ethiopia.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Fanuel Gebru, software engineer",
+    template: "%s | Fanuel Gebru",
+  },
+  description,
+  alternates: { canonical: "/" },
+  authors: [{ name: "Fanuel Gebru" }],
+  keywords: [
+    "Fanuel Gebru",
+    "software engineer",
+    "backend engineer",
+    "NestJS",
+    "Next.js",
+    "machine learning",
+    "Aberdeen",
+  ],
   openGraph: {
     title: "Fanuel Gebru, software engineer",
-    description:
-      "Backend and machine learning work from Aberdeen, built for people who will actually use it.",
+    description,
     type: "website",
+    url: siteUrl,
+    locale: "en_GB",
+    siteName: "Fanuel Gebru",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fanuel Gebru, software engineer",
+    description,
+  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -45,7 +71,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${bricolage.variable} ${sourceSerif.variable} ${jetbrainsMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <a className="skip-link" href="#work">
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

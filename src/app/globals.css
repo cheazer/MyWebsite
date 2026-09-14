@@ -4,7 +4,7 @@
   --color-paper: #f2f3f1;
   --color-paper-deep: #e7e9e5;
   --color-granite: #24282b;
-  --color-mica: #6e777d;
+  --color-mica: #646d73;
   --color-edge: #d5d9d3;
   --color-jade: #0f6b4f;
 
@@ -15,6 +15,7 @@
 
 @layer base {
   html {
+    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -35,6 +36,22 @@
 
   a {
     color: inherit;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 50;
+    background-color: var(--color-granite);
+    color: var(--color-paper);
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    transition: top 180ms ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
   }
 
   :focus-visible {
@@ -91,7 +108,7 @@
     text-decoration-color: var(--color-jade);
   }
 
-    .reveal {
+  .reveal {
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 620ms cubic-bezier(0.22, 0.61, 0.28, 1),
