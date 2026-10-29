@@ -85,7 +85,7 @@ export default function Hero() {
               </div>
               <figcaption className="meta relative mt-5 flex flex-col gap-1">
                 <span>Aberdeen, Scotland</span>
-                <span>Open to 2027 graduate roles, internships and research</span>
+                <span>Looking for graduate backend or software engineering roles from summer 2027</span>
               </figcaption>
             </figure>
           </div>
