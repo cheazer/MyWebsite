@@ -7,10 +7,18 @@ export type Role = {
   badge?: "google";
 };
 
+export type SkillAccent = "jade" | "azure" | "ember" | "plum" | "teal";
+
 export type SkillGroup = {
   label: string;
+  accent: SkillAccent;
   items: string[];
 };
+
+export const whoIAm = [
+  "I'm a final-year computing science student at the University of Aberdeen, and most of what I build sits at the overlap of backend engineering and applied machine learning.",
+  "I co-founded VintageET to give second-hand fashion in Ethiopia a real marketplace instead of group chats, I organise Google Developer Group workshops on agentic AI and the Gemini API, and I demonstrate first-year labs because I like watching the moment a problem stops being confusing. Outside of all that, GridPulse is where I spend most of my spare attention right now.",
+];
 
 export const education = {
   degree: "BSc (Hons) Computing Science",
@@ -61,23 +69,22 @@ export const roles: Role[] = [
     detail:
       "76+ recorded hours of one-to-one online teaching across Pre-IB and GCSE maths, including applied statistics, linear algebra and calculus. I run my own scheduling and client relationships alongside full-time study.",
   },
-  {
-    title: "Events organiser, board member",
-    organisation: "Rotaract Club",
-    period: "2024",
-    detail: "Planned and ran club events.",
-  },
 ];
 
 export const skillGroups: SkillGroup[] = [
-  { label: "Languages", items: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "C"] },
-  { label: "Frameworks", items: ["React", "Next.js", "NestJS", "Node.js", "Flask"] },
-  { label: "Databases", items: ["PostgreSQL", "Prisma ORM", "Redis", "Supabase", "MySQL"] },
-  { label: "Cloud and DevOps", items: ["Cloudflare R2", "GitHub Actions", "Docker", "Linux", "Git"] },
+  { label: "Languages", accent: "jade", items: ["Python", "Java", "TypeScript", "SQL", "C"] },
   {
-    label: "Practices",
-    items: ["Agile", "Scrum", "TDD", "REST API design", "Unit and e2e testing", "Code review"],
+    label: "AI and ML",
+    accent: "azure",
+    items: ["Agentic AI", "Multi-agent systems", "Gemini API", "LightGBM", "XGBoost", "scikit-learn", "MLflow"],
   },
+  {
+    label: "Backend",
+    accent: "ember",
+    items: ["REST APIs", "Microservices", "Event-driven architecture", "Spring Boot", "FastAPI", "NestJS", "Flask"],
+  },
+  { label: "Data", accent: "plum", items: ["Kafka", "PostgreSQL", "TimescaleDB", "Redis", "MySQL"] },
+  { label: "DevOps", accent: "teal", items: ["Docker", "GitHub Actions CI/CD", "Testcontainers", "Linux", "Git"] },
 ];
 
 export const spokenLanguages = "English (fluent), Amharic, Arabic, Tigrinya";

@@ -88,11 +88,21 @@ export function GoogleGIcon({ className }: IconProps) {
   );
 }
 
-export type IconKey = "server" | "brain" | "terminal" | "users";
+export function PulseIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M2.5 13.5h3.8l2-7 3 10.5 2.5-9 1.8 5.5h3.9" />
+      <circle cx="19.5" cy="6" r="1.3" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export type IconKey = "server" | "brain" | "terminal" | "users" | "pulse";
 
 export const iconMap: Record<IconKey, (props: IconProps) => React.ReactElement> = {
   server: ServerIcon,
   brain: BrainIcon,
   terminal: TerminalIcon,
   users: UsersIcon,
+  pulse: PulseIcon,
 };

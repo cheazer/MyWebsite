@@ -1,4 +1,9 @@
-export type IconKey = "server" | "brain" | "terminal" | "users";
+export type IconKey = "server" | "brain" | "terminal" | "users" | "pulse";
+
+export type WorkStatus = {
+  label: string;
+  tone: "live" | "building";
+};
 
 export type WorkItem = {
   slug: string;
@@ -10,40 +15,42 @@ export type WorkItem = {
   highlights: string[];
   stack: string[];
   href?: string;
-};
-
-export const featuredWork: WorkItem = {
-  slug: "vintageet",
-  icon: "server",
-  name: "VintageET",
-  context: "Co-founder and backend engineer",
-  period: "2025 to now",
-  summary:
-    "A two-sided second-hand marketplace for Ethiopia, where buying and selling clothes online still runs on group chats and trust. I lead the backend on a three-engineer team.",
-  highlights: [
-    "Listings, orders, search, reviews, chat and notifications. Orders run inside atomic database transactions, so two buyers cannot purchase the same listing.",
-    "JWT auth with Google OAuth, role-based admin guards checked against live user state, and presigned image uploads to Cloudflare R2.",
-    "Set up the CI pipeline that gates lint and type checks, squash-and-merge review, and wrote the unit and e2e suites.",
-  ],
-  stack: ["NestJS", "Prisma", "PostgreSQL", "Redis", "Next.js", "TypeScript"],
-  href: "https://github.com/cheazer/VintageET",
+  status?: WorkStatus;
 };
 
 export const projects: WorkItem[] = [
   {
-    slug: "studymate",
-    icon: "brain",
-    name: "StudyMate",
-    context: "AI study companion, GDG Build with Gemma hackathon",
-    period: "One day, two people",
+    slug: "vintageet",
+    icon: "server",
+    name: "VintageET",
+    context: "Co-founder and backend engineer — my startup",
+    period: "2025 to now",
     summary:
-      "A study companion that turns a lecture topic into a roadmap, flashcards and an explainer video.",
+      "A two-sided second-hand marketplace for Ethiopia, where buying and selling clothes online still runs on group chats and trust. I lead the backend on a three-engineer team.",
     highlights: [
-      "Gemma generates the study content behind onboarding, streak tracking and a roadmap chatbot.",
-      "Explainer videos come from driving the Manim animation library with Gemma output, run as a separate FastAPI service so a slow render never blocks the request path.",
-      "Shipped a working demo, a pitch deck and a Kaggle submission inside the day.",
+      "Listings, orders, search, reviews, chat and notifications. Orders run inside atomic database transactions, so two buyers cannot purchase the same listing.",
+      "JWT auth with Google OAuth, role-based admin guards checked against live user state, and presigned image uploads to Cloudflare R2.",
+      "Set up the CI pipeline that gates lint and type checks, squash-and-merge review, and wrote the unit and e2e suites.",
     ],
-    stack: ["Next.js", "Supabase", "Gemma", "FastAPI", "Manim"],
+    stack: ["NestJS", "Prisma", "PostgreSQL", "Redis", "Next.js", "TypeScript"],
+    href: "https://github.com/cheazer/VintageET",
+    status: { label: "Under construction — launching Feb 12, 2027", tone: "building" },
+  },
+  {
+    slug: "gridpulse",
+    icon: "pulse",
+    name: "GridPulse",
+    context: "Real-time UK grid intelligence platform",
+    period: "In active development",
+    summary:
+      "An event-driven pipeline streaming live UK electricity data from National Grid ESO, Elexon and weather feeds through Kafka into TimescaleDB, feeding a forecasting service that predicts next-day demand and carbon intensity.",
+    highlights: [
+      "Schema-validated events, idempotent writes and resumable backfills, loading 3.3M records across two years.",
+      "Day-ahead demand and carbon intensity forecasts with LightGBM and calibrated 80% prediction intervals (conformal prediction), halving error against a seasonal baseline in a 12-month leakage-safe backtest benchmarked against the grid operator's own forecasts.",
+      "A production-style ML service: a scheduled forecast job, a FastAPI REST API, and an MLflow model registry with a champion/challenger gate that only promotes models that are no worse on unseen data.",
+    ],
+    stack: ["Java 21", "Spring Boot", "Kafka", "TimescaleDB", "Python", "LightGBM", "FastAPI", "MLflow", "Docker"],
+    href: "https://github.com/cheazer/gridpulse",
   },
   {
     slug: "mushroom-toxicity",
