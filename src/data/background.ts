@@ -34,17 +34,25 @@ export const roles: Role[] = [
       "Backend lead on a three-engineer team, remote to Addis Ababa. Architecture, APIs, auth, testing and CI.",
   },
   {
+    title: "Organiser and workshop lead",
+    organisation: "GDG on Campus, University of Aberdeen",
+    period: "2026 to now",
+    detail:
+      "Design and deliver workshops across the UK on building and scaling multiagent systems and multimodal web applications with the Google Gemini API, including \"Building Multimodal Web Apps with Gemini API\". Plan and run hackathons and tech events for students and local developers.",
+  },
+  {
+    title: "Undergraduate course demonstrator",
+    organisation: "University of Aberdeen, School of NCS",
+    period: "2026 to now",
+    detail:
+      "Run lab practical sessions for CS1029 Modelling and Problem Solving, supporting students in breaking problems down and working through them step by step, adapting explanations to different levels.",
+  },
+  {
     title: "Private mathematics tutor",
     organisation: "Apparentus Tutoring",
     period: "2024 to now",
     detail:
       "76+ recorded hours of one-to-one online teaching across Pre-IB and GCSE maths, including applied statistics, linear algebra and calculus. I run my own scheduling and client relationships alongside full-time study.",
-  },
-  {
-    title: "Store clerk, volunteer",
-    organisation: "Home-Start Aberdeen",
-    period: "2025",
-    detail: "Charity shop floor and stock work.",
   },
   {
     title: "Events organiser, board member",
