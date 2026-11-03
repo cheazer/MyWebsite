@@ -3,6 +3,8 @@ export type Role = {
   organisation: string;
   period: string;
   detail: string;
+  image?: { src: string; alt: string };
+  badge?: "google";
 };
 
 export type SkillGroup = {
@@ -39,6 +41,11 @@ export const roles: Role[] = [
     period: "2026 to now",
     detail:
       "Design and deliver workshops across the UK on building and scaling multiagent systems and multimodal web applications with the Google Gemini API, including \"Building Multimodal Web Apps with Gemini API\". Plan and run hackathons and tech events for students and local developers.",
+    image: {
+      src: "/gdg-workshop.jpg",
+      alt: "Fanuel presenting a Gemini multimodal API workshop to a lecture room",
+    },
+    badge: "google",
   },
   {
     title: "Undergraduate course demonstrator",

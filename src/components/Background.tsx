@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
+import { GoogleGIcon } from "./icons";
 
 import {
   awards,
@@ -33,11 +35,27 @@ export default function Background() {
             {roles.map((role) => (
               <li key={`${role.organisation}-${role.title}`}>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="display-sm text-lg">{role.organisation}</h3>
+                  <h3 className="display-sm flex items-center gap-2 text-lg">
+                    {role.badge === "google" ? (
+                      <GoogleGIcon className="h-4 w-4 shrink-0" />
+                    ) : null}
+                    {role.organisation}
+                  </h3>
                   <p className="meta">{role.period}</p>
                 </div>
                 <p className="mt-1 text-[1.0625rem]">{role.title}</p>
                 <p className="prose-column mt-2 text-mica">{role.detail}</p>
+                {role.image ? (
+                  <div className="relative mt-4 aspect-[4/3] w-full max-w-sm overflow-hidden border border-edge">
+                    <Image
+                      alt={role.image.alt}
+                      className="object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 88vw, 384px"
+                      src={role.image.src}
+                    />
+                  </div>
+                ) : null}
               </li>
             ))}
           </ul>

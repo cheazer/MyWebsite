@@ -8,7 +8,7 @@ type HeroLink = {
 
 const links: HeroLink[] = [
   { label: "github.com/cheazer", href: "https://github.com/cheazer" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/fanuel-gebru-7728642b6" },
   { label: "FisehaFanuel@gmail.com", href: "mailto:FisehaFanuel@gmail.com" },
 ];
 
@@ -63,6 +63,15 @@ export default function Hero() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  className="border border-granite px-4 py-1.5 text-[0.9rem] transition-colors duration-200 hover:border-jade hover:bg-jade hover:text-paper"
+                  download
+                  href="/FanuelGebru-CV.pdf"
+                >
+                  Download CV
+                </a>
+              </li>
             </ul>
           </div>
 
